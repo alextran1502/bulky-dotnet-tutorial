@@ -15,6 +15,7 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        _logger.Log(LogLevel.Information, "Hello from Index() in HomeController.cs 123");
         return View();
     }
 

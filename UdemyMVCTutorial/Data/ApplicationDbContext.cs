@@ -1,6 +1,11 @@
-﻿namespace UdemyMVCTutorial.Data;
+﻿using Microsoft.EntityFrameworkCore;
 
-public class ApplicationDbContext
+namespace UdemyMVCTutorial.Data;
+
+public class ApplicationDbContext : DbContext
 {
-    
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+    {
+    }
+
 }
