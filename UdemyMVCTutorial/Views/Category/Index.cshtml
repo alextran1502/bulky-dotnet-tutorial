@@ -1,7 +1,7 @@
 @model List<Category>
 
 @{
-    ViewBag.Title = "title";
+    ViewBag.Title = "Category";
     Layout = "_Layout";
 }
 
@@ -9,10 +9,10 @@
 
     <div class="row py-4">
         <div class="col-6">
-            <div class="text-primary text-black card-subtitle">Category List</div>
+            <h1 class="text-primary text-black card-subtitle">Category List</h1>
         </div>
         <div class="col-6 text-end">
-            <a asp-controller="" asp-action="" class="btn btn-primary">Create Category</a>
+            <a asp-controller="Category" asp-action="Create" class="btn btn-primary">Create New Category</a>
         </div>
     </div>
 
@@ -23,7 +23,7 @@
         </tr>
 
         <tbody>
-        @foreach (var item in Model)
+        @foreach (var item in Model.OrderBy(o => o.DisplayOrder))
         {
             <tr>
                 <td>@item.Name</td>
