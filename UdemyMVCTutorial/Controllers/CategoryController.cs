@@ -1,12 +1,20 @@
 using Microsoft.AspNetCore.Mvc;
+using UdemyMVCTutorial.Data;
+using UdemyMVCTutorial.Models;
 
 namespace UdemyMVCTutorial.Controllers;
 
 public class CategoryController : Controller
 {
-    // GET
+    private readonly ApplicationDbContext _db;
+    public CategoryController(ApplicationDbContext db)
+    {
+        _db = db;
+    }
+
     public IActionResult Index()
     {
-        return View();
+        List<Category> objCategoryList = _db.Categories.ToList();
+        return View(objCategoryList);
     }
 }
