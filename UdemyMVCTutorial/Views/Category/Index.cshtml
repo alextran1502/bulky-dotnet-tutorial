@@ -1,8 +1,37 @@
-@model dynamic
+@model List<Category>
 
 @{
     ViewBag.Title = "title";
     Layout = "_Layout";
 }
 
-<h2>Category</h2>
+<div class="container">
+
+    <div class="row py-4">
+        <div class="col-6">
+            <div class="text-primary text-black">Category List</div>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="" asp-action="">Create Category</a>
+        </div>
+    </div>
+
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th>Category Name</th>
+            <th>Display Order</th>
+        </tr>
+
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.DisplayOrder</td>
+            </tr>
+        }
+        </tbody>
+
+    </table>
+
+</div>
